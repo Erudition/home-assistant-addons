@@ -14,6 +14,8 @@ COPY rootfs /
 # Install requirements for add-on
 RUN \
   apk add --no-cache \
-    pianobar alsa-plugins-pulse
+    pianobar alsa-plugins-pulse alsa-utils pulseaudio alsa-plugins
+
+# are all of those needed^
 
 WORKDIR /data

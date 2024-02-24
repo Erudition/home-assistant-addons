@@ -13,23 +13,61 @@ declare message
 message=$(bashio::config 'message')
 username=$(bashio::config 'username')
 password=$(bashio::config 'password')
-password=$(bashio::config 'autostart_station')
+autostart_station=$(bashio::config 'autostart_station')
 
 ## Print the message the user supplied, defaults to "Hello World..."
-bashio::log.info "${message}"
-bashio::log.info "Username: ${username}"
+bashio::log.info "Building Pianobar config."
 
 mkdir ~/.config
 mkdir ~/.config/pianobar
+
+
+# copy this into libao config -- test if needed
+cat >>~/.libao <<EOL
+default_driver=default
+EOL
+
+#copy this into alsa config -- not needed
+# cat >>~/.asoundrc <<EOL
+# # Use pulseaudio by default
+# pcm.!default {
+#   type pulse
+#   fallback "sysdefault"
+#   hint {
+#     show on
+#     description "Default ALSA Output (currently PulseAudio Sound Server)"
+#   }
+# }
+
+# ctl.!default {
+#   type pulse
+#   fallback "sysdefault"
+# } 
+# EOL
+
+
 
 echo "user = ${username}" >> ~/.config/pianobar/config
 echo "password = ${password}" >> ~/.config/pianobar/config
 echo "audio_quality = high" >> ~/.config/pianobar/config
 echo "autostart_station = ${autostart_station}" >> ~/.config/pianobar/config
 
-contents=$(cat ~/.config/pianobar/config)
+configcontents=$(cat ~/.config/pianobar/config)
+libaocontents=$(cat ~/.libao)
+asoundcontents=$(cat /etc/asound.conf)
 
-bashio::log.info "file contents: ${contents}"
+bashio::log.info "libao config file contents: ${libaocontents}"
+bashio::log.info "config file contents: ${configcontents}"
+bashio::log.info "/etc/asound.conf contents: ${asoundcontents}"
+
+bashio::log.info "Alsa devices:"
+aplay -L
+
+bashio::log.info "Alsa cards:"
+aplay -l
 
 ## Run your program
+
+speaker-test -t wav -c 2 --nloops 1
+
 exec pianobar

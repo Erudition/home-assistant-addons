@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: Pandora HASSOS
-version: "0.3"
+version: "0.5"
 slug: pandora
 description: Pianobar on HASSOS
 url: "https://github.com/Erudition/hass-pandora-addon/tree/main/pandora"
@@ -14,14 +14,12 @@ init: false
 map:
   - share:rw
 options:
-  message: "Hello world..."
   username: null
   password: null
-  autostart_station: null
+  autostart_station: "None"
 schema:
-  message: "str?"
-  username: str
-  password: str
-  autostart_station: int?
+  username: email
+  password: password
+  autostart_station: str
 #image: "ghcr.io/home-assistant/{arch}-addon-example"
 audio: true
