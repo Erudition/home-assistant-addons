@@ -19,5 +19,5 @@ options:
   password:
 schema:
   message: "str?"
-#image: "ghcr.io/home-assistant/{arch}-addon-example"
+image: "ghcr.io/home-assistant/{arch}-addon-example"
 audio: true
