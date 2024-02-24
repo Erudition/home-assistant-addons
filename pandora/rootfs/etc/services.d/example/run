@@ -13,14 +13,19 @@ declare message
 message=$(bashio::config 'message')
 
 ## Print the message the user supplied, defaults to "Hello World..."
-bashio::log.info "${message:="Hello World..."}"
+bashio::log.info "${message}"
+bashio::log.info "Username: ${username}"
 
 mkdir ~/.config
 mkdir ~/.config/pianobar
 
 echo "user = " $(bashio::config 'username') >> ~/.config/pianobar/config
 echo "password = " $(bashio::config 'password') >> ~/.config/pianobar/config
-echo "audio_quality = low" >> ~/.config/pianobar/config
+echo "audio_quality = high" >> ~/.config/pianobar/config
+
+contents=$(cat ~/.config/pianobar/config)
+
+bashio::log.info "file contents: ${contents}"
 
 ## Run your program
 exec pianobar
