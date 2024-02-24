@@ -17,9 +17,11 @@ options:
   message: "Hello world..."
   username: null
   password: null
+  autostart_station: null
 schema:
   message: "str?"
   username: str
   password: str
+  autostart_station: int?
 #image: "ghcr.io/home-assistant/{arch}-addon-example"
 audio: true
