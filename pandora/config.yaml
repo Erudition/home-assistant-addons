@@ -15,9 +15,11 @@ map:
   - share:rw
 options:
   message: "Hello world..."
-  username: ""
-  password: ""
+  username: null
+  password: null
 schema:
   message: "str?"
+  username: str
+  password: str
 #image: "ghcr.io/home-assistant/{arch}-addon-example"
 audio: true
