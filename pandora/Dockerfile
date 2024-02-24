@@ -10,3 +10,8 @@ RUN \
 
 # Copy root filesystem
 COPY rootfs /
+
+# Install requirements for add-on
+RUN \
+  apk add --no-cache \
+    pianobar alsa-plugins-pulse

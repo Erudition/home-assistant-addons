@@ -1,0 +1,23 @@
+# https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
+name: Pandora HASSOS
+version: "0.1"
+slug: pandora
+description: Pianobar on HASSOS
+url: "https://github.com/Erudition/hass-pandora-addon/tree/main/pandora"
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+init: false
+map:
+  - share:rw
+options:
+  message: "Hello world..."
+  username: ""
+  password:
+schema:
+  message: "str?"
+#image: "ghcr.io/home-assistant/{arch}-addon-example"
+audio: true
