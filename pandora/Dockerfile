@@ -15,3 +15,5 @@ COPY rootfs /
 RUN \
   apk add --no-cache \
     pianobar alsa-plugins-pulse
+
+WORKDIR /data
