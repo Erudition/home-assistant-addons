@@ -1,0 +1,10 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Start the example service
+# s6-overlay docs: https://github.com/just-containers/s6-overlay
+# ==============================================================================
+
+
+## Run your program
+
+exec /usr/bin/trimcompress.bash $(bashio::config 'processed_recording_folder') $(bashio::config 'max_overall_disk_usage_percent') $(bashio::config 'max_folder_size_megabytes') $(bashio::config 'output_segment_size')
