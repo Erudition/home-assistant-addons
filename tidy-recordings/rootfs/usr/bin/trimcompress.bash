@@ -65,8 +65,8 @@ function recordingConvertTrimCompress {
     echo "Processing $wav_size_megabytes MB recording: $1"
     ffprobe "$1" 2>&1 | grep "Duration"
 
-    /usr/bin/time -f "Time Taken: %E, CPU: %P (out of $(nproc)00%)" \
-    ffmpeg -loglevel error -hide_banner -y -i "$1" -nostdin -c:a libopus -ac 1 -b:a 24K -af silenceremove=timestamp=copy:stop_duration=1:window=0:detection=peak:stop_mode=all:start_mode=all:stop_periods=-1:stop_threshold=-30dB -f segment -segment_time $output_segment_size -reset_timestamps 1 "$processing_folder/%d.opus"
+    /usr/bin/time -f "Processed in %E, CPU: %P (out of $(nproc)00 %% )" \
+    ffmpeg -loglevel error -hide_banner -y -i "$1" -nostdin -c:a libopus -ac 1 -b:a 24K -af silenceremove=stop_duration=1:window=0:detection=peak:stop_mode=all:start_mode=all:stop_periods=-1:stop_threshold=-30dB -f segment -segment_time $output_segment_size -reset_timestamps 1 "$processing_folder/%d.opus"
     
     cd $processing_folder
     all_segments_size_megabytes=$(du -sxbm "$processing_folder" | awk '{print $1}')
@@ -74,7 +74,7 @@ function recordingConvertTrimCompress {
     saved_megabytes=$(( wav_size_megabytes - all_segments_size_megabytes))
     saved_kilobytes=$(( wav_size_kilobytes - all_segments_size_kilobytes))
     # using bc allows floating point division and prevents div by zero crash
-    saved_percent=$( echo "scale=4; 100 - ($saved_kilobytes / $wav_size_kilobytes * 100)" | bc)
+    saved_percent=$( echo "scale=2; x=$saved_kilobytes / $wav_size_kilobytes; scale=0; 100 - (x * 100)" | bc)
     echo "Done. New Total: $all_segments_size_megabytes MB, Saved: $saved_megabytes MB ($saved_percent% smaller)"
     for processed_filename in *.opus
         do

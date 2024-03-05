@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: Tidy Recordings
-version: "1.0"
+version: "1.2"
 slug: tidy-recordings
 description: Auto compress, remove silence, and organize the Assist Pipeline recordings
 url: "https://github.com/Erudition/hass-pandora-addon/tree/main/tidy-recordings"
@@ -19,7 +19,7 @@ options:
   max_folder_size_megabytes: 100000
   max_overall_disk_usage_percent: 90
 schema:
-  processed_recording_folder: match(^((/[a-zA-Z0-9-_]+)+|/)$)
+  processed_recording_folder: match(^(([a-zA-Z0-9-_]+)+|)$)
   output_segment_size: int
   max_folder_size_megabytes: int(100,10000000)
   max_overall_disk_usage_percent: int(50,99)
