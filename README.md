@@ -7,7 +7,7 @@
 
 This repository contains the following add-ons
 
-### [Tidy Recordings](./pandora)
+### [Tidy Recordings](./tidy-recordings)
 
 ![Supports aarch64 Architecture][aarch64-shield]
 ![Supports amd64 Architecture][amd64-shield]
@@ -18,7 +18,7 @@ This repository contains the following add-ons
 _Organize your Assist Pipeline recordings by compressing them, chunking them, removing silence, and auto-delete oldest._
 
 
-### [Pandora add-on](./pandora)
+### [Pandora add-on (WIP)](./pandora)
 
 ![Supports aarch64 Architecture][aarch64-shield]
 ![Supports amd64 Architecture][amd64-shield]
