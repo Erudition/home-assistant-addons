@@ -2,6 +2,8 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 LABEL org.opencontainers.image.source=https://github.com/Erudition/home-assistant-addons
+LABEL org.opencontainers.image.description="Tidy Recordings for Home Assistant"
+LABEL org.opencontainers.image.licenses=MIT
 # Execute during the build of the image
 ARG TEMPIO_VERSION BUILD_ARCH
 RUN \
