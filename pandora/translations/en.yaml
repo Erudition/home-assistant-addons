@@ -1,4 +1,16 @@
 configuration:
-  message:
-    name: Message
-    description: The message that will be printed to the log when starting this example add-on.
+  processed_recording_folder:
+    name: Recording folder name
+    description: Processed recordings will go into this folder name under /share/assist_pipeline. You can add this folder to your media library for easy playback.
+  output_segment_size:
+    name: Size of recording segments (seconds)
+    description: For recordings greater than this duration, the file will be split into chunks this long. 3600 seconds is one hour.
+  max_folder_size_megabytes:
+    name: Max folder size (megabytes)
+    description: If the whole /share/assist_pipeline folder (including unprocessed recordings!) is larger than this many megabytes, the oldest files will be deleted until the total size is acceptable before processing starts. 10GB is 10,000 megabytes.
+  max_overall_disk_usage_percent:
+    name: Maximum storage usage (percent)
+    description: "If the usage of the storage drive holding the recordings is above this percent full, the oldest files will be deleted until it's not. Example: 99% max usage means minimum 1% free space, regardless of how much of this usage is due to recordings. This feature prevents your storage drive from running out of space. Processing recordings takes some additional temporary space. Note that if you set this too low (lower than the percent ever occupied by your other files), all recordings will be deleted."
+  sleep:
+    name: Run again after (optional)
+    description: Sleep for this long before running again. If not set, you'll need to run the addon manually or with an automation. Specify any number of seconds, or a space-separated list of units like `0.5d 1h 12m 30s`. 
