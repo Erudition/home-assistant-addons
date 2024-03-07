@@ -30,4 +30,4 @@ schema:
   max_overall_disk_usage_percent: int(50,99)
   should_rerun: bool
   sleep_duration: 'match(^(\d*\.?\d+)d|\s+|(\d*\.?\d+)h|\s+|(\d*\.?\d+)m|\s+|(\d*\.?\d+)s|\s+|(\d*\.?\d+))$'
-image: "ghcr.io/erudition/{arch}-addon-tidy-recordings"
+#image: "ghcr.io/erudition/{arch}-addon-tidy-recordings"
