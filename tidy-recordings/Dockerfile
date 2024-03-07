@@ -1,4 +1,5 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-dockerfile
+LABEL org.opencontainers.image.source=https://github.com/Erudition/home-assistant-addons
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
