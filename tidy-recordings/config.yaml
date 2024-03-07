@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: Tidy Recordings
-version: "1.971"
+version: "1.972"
 slug: tidy-recordings
 description: Auto compress, remove silence, and organize the Assist Pipeline recordings
 url: "https://github.com/Erudition/home-assistant-addons/tree/main/tidy-recordings"
