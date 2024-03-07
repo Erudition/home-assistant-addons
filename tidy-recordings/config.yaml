@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: Tidy Recordings
-version: "1.5"
+version: "1.6"
 slug: tidy-recordings
 description: Auto compress, remove silence, and organize the Assist Pipeline recordings
 url: "https://github.com/Erudition/home-assistant-addons/tree/main/tidy-recordings"
@@ -11,8 +11,11 @@ arch:
   - amd64
   - i386
 init: false
+startup: application
+apparmor: true # shouldn't cause any problems?
 map:
   - share:rw
+  - media:rw # TODO output to media dir
 options:
   processed_recording_folder: "recordings"
   output_segment_size: 3600
@@ -25,4 +28,4 @@ schema:
   max_folder_size_megabytes: int(100,10000000)
   max_overall_disk_usage_percent: int(50,99)
   sleep: 'match((\d*\.?\d+)d|\s+|(\d*\.?\d+)h|\s+|(\d*\.?\d+)m|\s+|(\d*\.?\d+)s|\s+|(\d*\.?\d+))?'
-image: "ghcr.io/Erudition/{arch}-addon-tidy-recordings"
+image: "ghcr.io/erudition/{arch}-addon-tidy-recordings"
