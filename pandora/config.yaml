@@ -3,7 +3,7 @@ name: Pandora HASSOS
 version: "0.5"
 slug: pandora
 description: Pianobar on HASSOS
-url: "https://github.com/Erudition/hass-pandora-addon/tree/main/pandora"
+url: "https://github.com/Erudition/home-assistant-addons/tree/main/pandora"
 arch:
   - armhf
   - armv7

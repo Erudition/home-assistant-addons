@@ -1,4 +1,4 @@
 # https://developers.home-assistant.io/docs/add-ons/repository#repository-configuration
-name: Pandora Addon Repository
-url: 'https://github.com/Erudition/hass-pandora-addon'
+name: "Erudition's Addon Repository"
+url: 'https://github.com/Erudition/home-assistant-addons'
 maintainer: Erudition
