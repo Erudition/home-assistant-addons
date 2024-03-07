@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: Tidy Recordings
-version: "1.91"
+version: "1.92"
 slug: tidy-recordings
 description: Auto compress, remove silence, and organize the Assist Pipeline recordings
 url: "https://github.com/Erudition/home-assistant-addons/tree/main/tidy-recordings"
@@ -11,8 +11,8 @@ arch:
   - amd64
   - i386
 init: false
-startup: application
-apparmor: true # shouldn't cause any problems?
+#startup: application #default
+#apparmor: true # default
 map:
   - share:rw
   - media:rw # TODO output to media dir
