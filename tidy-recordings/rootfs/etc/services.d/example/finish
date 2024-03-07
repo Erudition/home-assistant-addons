@@ -3,21 +3,11 @@
 # Take down the S6 supervision tree
 # s6-overlay docs: https://github.com/just-containers/s6-overlay
 # ==============================================================================
-
+# This script will be killed if it takes longer than a few seconds
 declare APP_EXIT_CODE=${1}
 
 if [[ "${APP_EXIT_CODE}" -ne 0 ]] && [[ "${APP_EXIT_CODE}" -ne 256 ]]; then
   bashio::log.warning "Halt add-on with exit code ${APP_EXIT_CODE}"
   echo "${APP_EXIT_CODE}" > /run/s6-linux-init-container-results/exitcode
   exec /run/s6/basedir/bin/halt
-fi
-
-if bashio::config.false 'should_rerun' ;
-then
-  bashio::log.info "Addon run complete. Stopping now, since you have not configured automatic re-run."
-  echo "${APP_EXIT_CODE}" > /run/s6-linux-init-container-results/exitcode # guess we have to do this or it won't actually stop
-  exec /run/s6/basedir/bin/halt
-else
-  bashio::log.info "Addon run complete. Sleeping for $(bashio::config 'sleep_duration')."
-  sleep $(bashio::config 'sleep_duration')
 fi

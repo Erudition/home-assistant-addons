@@ -8,3 +8,14 @@
 ## Run your program
 
 exec /usr/bin/trimcompress.bash $(bashio::config 'processed_recording_folder') $(bashio::config 'max_overall_disk_usage_percent') $(bashio::config 'max_folder_size_megabytes') $(bashio::config 'output_segment_size')
+
+
+if bashio::config.false 'should_rerun' ;
+then
+  bashio::log.info "Addon run complete. Stopping now, since you have not configured automatic re-run."
+  echo "${APP_EXIT_CODE}" > /run/s6-linux-init-container-results/exitcode # guess we have to do this or it won't actually stop
+  exec /run/s6/basedir/bin/halt
+else
+  bashio::log.info "Addon run complete. Sleeping for $(bashio::config 'sleep_duration')."
+  sleep $(bashio::config 'sleep_duration')
+fi
