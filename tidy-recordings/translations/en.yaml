@@ -15,5 +15,5 @@ configuration:
     name: Repeat Automatically
     description: "Run again automatically, after the configured sleep time. If not set, the addon will stop when completed, and you'll need to run the addon manually or with an automation."
   sleep_duration:
-    name: Run again after (optional)
-    description: "Sleep for this long before running again. Specify any number of seconds, or a space-separated list of units like `0.5d 1h 12m 30s`."
+    name: Run again after (duration)
+    description: "If enabled above, sleep this long before running again. Specify any number of seconds, or a space-separated list of units like `0.5d 1h 12m 30s`."
