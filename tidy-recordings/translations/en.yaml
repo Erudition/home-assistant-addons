@@ -11,6 +11,9 @@ configuration:
   max_overall_disk_usage_percent:
     name: Maximum storage usage (percent)
     description: "If the usage of the storage drive holding the recordings is above this percent full, the oldest files will be deleted until it's not. Example: 99% max usage means minimum 1% free space, regardless of how much of this usage is due to recordings. This feature prevents your storage drive from running out of space. Processing recordings takes some additional temporary space. Note that if you set this too low (lower than the percent ever occupied by your other files), all recordings will be deleted."
-  sleep:
+  should_rerun:
+    name: Repeat Automatically
+    description: "Run again automatically, after the configured sleep time. If not set, the addon will stop when completed, and you'll need to run the addon manually or with an automation."
+  sleep_duration:
     name: Run again after (optional)
-    description: "Sleep for this long before running again. If not set, you'll need to run the addon manually or with an automation. Specify any number of seconds, or a space-separated list of units like `0.5d 1h 12m 30s`."
+    description: "Sleep for this long before running again. Specify any number of seconds, or a space-separated list of units like `0.5d 1h 12m 30s`."

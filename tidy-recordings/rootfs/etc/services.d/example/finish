@@ -12,11 +12,11 @@ if [[ "${APP_EXIT_CODE}" -ne 0 ]] && [[ "${APP_EXIT_CODE}" -ne 256 ]]; then
   exec /run/s6/basedir/bin/halt
 fi
 
-if bashio::config.is_empty 'sleep';
+if bashio::config 'should_rerun' ;
 then
-  bashio::log.info "Addon run complete. Stopping now, since you have not configured a re-run interval."
+  bashio::log.info "Addon run complete. Stopping now, since you have not configured automatic re-run."
   exec /run/s6/basedir/bin/halt
 else
-  bashio::log.info "Addon run complete. Sleeping for $(bashio::config 'sleep')."
-  sleep $(bashio::config 'sleep')
+  bashio::log.info "Addon run complete. Sleeping for $(bashio::config 'sleep_duration')."
+  sleep $(bashio::config 'sleep_duration')
 fi
