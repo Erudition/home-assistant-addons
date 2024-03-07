@@ -25,5 +25,4 @@ schema:
   max_folder_size_megabytes: int(100,10000000)
   max_overall_disk_usage_percent: int(50,99)
   sleep: "match((\d*\.?\d+)d|\s+|(\d*\.?\d+)h|\s+|(\d*\.?\d+)m|\s+|(\d*\.?\d+)s|\s+|(\d*\.?\d+))?"
-
-#image: "ghcr.io/home-assistant/{arch}-addon-example"
+image: "ghcr.io/Erudition/{arch}-addon-tidy-recordings"
